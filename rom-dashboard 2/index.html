@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roma · Reiseplan 18–20 Juni 2026</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%277%27%20fill%3D%27%239d3528%27/%3E%3Cpath%20d%3D%27M6%2024h20M9%2024V12m4%2012V12m6%2012V12m4%2012V12M6%2012h20l-3-4H9z%27%20fill%3D%27none%27%20stroke%3D%27%23d9a441%27%20stroke-width%3D%271.7%27%20stroke-linejoin%3D%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --cream:#f5ecdd;
+    --paper:#fbf6ec;
+    --ink:#2a2018;
+    --ink-soft:#5b4f42;
+    --red:#9d3528;
+    --red-deep:#7c2820;
+    --ochre:#c2893a;
+    --gold:#d9a441;
+    --olive:#5f6a48;
+    --line:#e2d4bd;
+    --shadow:0 18px 40px -22px rgba(60,30,15,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;line-height:1.05;letter-spacing:-.01em}
+  a{color:var(--red);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--ochre)}
+
+  /* HERO */
+  header.hero{
+    position:relative;
+    background:
+      radial-gradient(120% 90% at 80% 0%, rgba(217,164,65,.30), transparent 55%),
+      linear-gradient(160deg,#7c2820 0%,#9d3528 45%,#b9603a 100%);
+    color:#fbf3e6;
+    padding:64px 0 110px;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";position:absolute;inset:0;opacity:.10;
+    background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);
+    background-size:22px 22px;
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .hero .eyebrow{color:var(--gold)}
+  .hero h1{font-size:clamp(3.4rem,11vw,7.5rem);font-weight:900;line-height:.86;margin:.18em 0 .12em;letter-spacing:-.03em}
+  .hero h1 em{font-style:italic;font-weight:500;color:var(--gold)}
+  .hero .sub{font-size:1.12rem;max-width:540px;color:#f4ddca}
+  .flights{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .flight{
+    background:rgba(251,243,230,.10);
+    border:1px solid rgba(251,243,230,.28);
+    border-radius:16px;padding:14px 18px;backdrop-filter:blur(4px);
+    display:flex;align-items:center;gap:14px;min-width:250px;
+  }
+  .flight .ico{font-family:'Fraunces',serif;font-size:1.5rem}
+  .flight b{font-size:1.05rem;letter-spacing:.02em}
+  .flight small{display:block;color:#f0d2bc;font-size:.82rem;letter-spacing:.03em}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .pill{background:rgba(0,0,0,.18);border:1px solid rgba(251,243,230,.25);border-radius:999px;padding:6px 15px;font-size:.83rem;font-weight:500}
+
+  /* NAV */
+  nav.toc{
+    position:sticky;top:0;z-index:40;background:rgba(251,246,236,.92);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  }
+  nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 22px;scrollbar-width:none}
+  nav.toc .wrap::-webkit-scrollbar{display:none}
+  nav.toc a{
+    white-space:nowrap;font-size:.84rem;font-weight:700;color:var(--ink-soft);
+    padding:7px 14px;border-radius:999px;letter-spacing:.02em;
+  }
+  nav.toc a:hover{background:var(--cream);color:var(--red);text-decoration:none}
+
+  /* FLIGHT / COUNTDOWN */
+  #flug{background:linear-gradient(180deg,#2a2018,#3a2c20);color:#f3e7d6;border-bottom:none}
+  #flug .shead h2{color:#fff}
+  #flug .shead p{color:#d6c4ac}
+  #flug .eyebrow{color:var(--gold)}
+  .cd-wrap{background:rgba(255,255,255,.05);border:1px solid rgba(217,164,65,.35);border-radius:20px;padding:26px 28px;margin-bottom:26px;text-align:center}
+  .cd-label{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+  .cd-flight{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:#fff;margin:6px 0 18px}
+  .cd-flight span{color:var(--gold)}
+  .cd-grid{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+  .cd-unit{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.10);border-radius:14px;min-width:92px;padding:16px 10px}
+  .cd-num{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:900;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+  .cd-u{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#cbb89c;margin-top:8px}
+  .fcards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .fc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 24px}
+  .fc .dir{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600;color:#fff;display:flex;align-items:center;gap:10px}
+  .fc .route{font-size:.9rem;color:var(--gold);font-weight:700;letter-spacing:.04em;margin:2px 0 16px}
+  .fc table{width:100%;border-collapse:collapse;font-size:.92rem}
+  .fc td{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.09);color:#e4d6c2}
+  .fc td:last-child{text-align:right;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+  .fc tr:last-child td{border-bottom:none}
+  .fc .hl td{color:var(--gold)}
+  .fc .hl td:last-child{color:var(--gold)}
+  .fnote{font-size:.82rem;color:#cbb89c;margin-top:14px;line-height:1.5}
+  @media(max-width:680px){.fcards{grid-template-columns:1fr}.cd-num{font-size:2rem}.cd-unit{min-width:72px}}
+
+  /* AVAILABILITY */
+  .avail-banner{display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:linear-gradient(120deg,#5f6a48,#7c8456);color:#fff;border-radius:16px;padding:18px 22px;margin-bottom:24px}
+  .avail-banner .txt{flex:1;min-width:240px;font-size:.95rem}
+  .avail-banner .txt b{font-weight:700}
+  .avail-banner .ab-btns{display:flex;gap:10px;flex-wrap:wrap}
+  .avail-banner .ab{background:#fff;color:var(--ink);font-weight:700;font-size:.84rem;padding:10px 16px;border-radius:10px;white-space:nowrap}
+  .avail-banner .ab:hover{background:var(--gold);text-decoration:none}
+  .availbadge{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:var(--olive);background:#eef0e4;border:1px solid #d4dab9;padding:4px 10px;border-radius:999px;margin-top:8px}
+  .availbadge .d{width:7px;height:7px;border-radius:50%;background:var(--olive);box-shadow:0 0 0 3px rgba(95,106,72,.2)}
+
+  /* TODO / PREP */
+  #todo{background:linear-gradient(180deg,#fbe9e2,#fbf6ec);border-bottom:none}
+  .todo-alarm{display:flex;gap:16px;align-items:center;background:var(--red);color:#fff;border-radius:16px;padding:18px 22px;margin-bottom:26px;box-shadow:var(--shadow)}
+  .todo-alarm .big{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;line-height:1;white-space:nowrap}
+  .todo-alarm .t b{font-weight:700}
+  .todo-alarm .t{font-size:.96rem;color:#ffe9df}
+  .todo-group{margin-bottom:26px}
+  .todo-group .gh{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .pri{font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:999px;color:#fff}
+  .pri.now{background:var(--red)}
+  .pri.soon{background:var(--ochre)}
+  .checklist{display:grid;gap:10px}
+  .chk{display:flex;gap:13px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;transition:.15s}
+  .chk:hover{border-color:var(--ochre)}
+  .chk.now-item{border-left:4px solid var(--red)}
+  .chk.soon-item{border-left:4px solid var(--ochre)}
+  .chk input{margin-top:2px;width:19px;height:19px;accent-color:var(--olive);flex-shrink:0;cursor:pointer}
+  .chk .ctxt{font-size:.93rem;color:var(--ink)}
+  .chk .ctxt b{font-weight:700}
+  .chk .ctxt small{display:block;color:var(--ink-soft);font-size:.83rem;margin-top:3px;line-height:1.45}
+  .chk .ctxt a{font-weight:700}
+  .chk.done .ctxt{text-decoration:line-through;opacity:.5}
+
+  /* WEATHER */
+  .wx{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 14px}
+  .wx-card{flex:1;min-width:160px;background:linear-gradient(160deg,#fff3da,#fbf6ec);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:14px}
+  .wx-card .ico{flex-shrink:0}
+  .wx-card .dd{font-weight:700;font-size:.78rem;letter-spacing:.05em;color:var(--ink-soft);text-transform:uppercase}
+  .wx-card .temp{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:600;color:var(--red);line-height:1.1}
+  .wx-card .temp small{font-size:.82rem;color:var(--ink-soft);font-weight:400}
+  .wx-card .cond{font-size:.78rem;color:var(--ochre);font-weight:700;margin-top:2px}
+  .wx-note{background:var(--paper);border:1px dashed var(--ochre);border-radius:12px;padding:12px 16px;font-size:.88rem;color:var(--ink-soft)}
+  .wx-note b{color:var(--ink)}
+
+  /* LIVE TIMELINE */
+  .nowbar{position:sticky;top:52px;z-index:30;background:var(--ink);color:#f3e7d6;border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:22px;box-shadow:var(--shadow)}
+  .nb-clock{display:flex;align-items:center;gap:8px;font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums}
+  .nb-clock small{font-family:'DM Sans',sans-serif;font-weight:600;font-size:.66rem;color:#cbb89c;letter-spacing:.12em}
+  .nb-dot{width:9px;height:9px;border-radius:50%;background:#86c986;animation:nbpulse 2s infinite}
+  @keyframes nbpulse{0%{box-shadow:0 0 0 0 rgba(134,201,134,.6)}70%{box-shadow:0 0 0 8px rgba(134,201,134,0)}100%{box-shadow:0 0 0 0 rgba(134,201,134,0)}}
+  .nb-text{flex:1;min-width:160px;font-size:.92rem;color:#f3e7d6}
+  .nb-text b{color:var(--gold)}
+  .nb-jump{background:var(--gold);color:var(--ink);border:none;border-radius:9px;padding:9px 14px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:'DM Sans',sans-serif}
+  .nb-jump:hover{background:#e7b864}
+  .tlday{margin-bottom:28px}
+  .tlday-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+  .tld-date{font-family:'Fraunces',serif;font-weight:900;font-size:1.45rem;color:var(--red)}
+  .tld-sub{font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.74rem;color:var(--ink-soft)}
+  .tev{display:flex;gap:14px;padding:14px 15px;border:1px solid var(--line);border-radius:14px;background:var(--paper);margin-bottom:10px;transition:.15s}
+  .tev-time{flex-shrink:0;width:62px;font-weight:700;color:var(--red);font-size:.9rem;font-variant-numeric:tabular-nums}
+  .tev-flag{display:block;font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ochre);margin-top:3px}
+  .tev-body{flex:1;min-width:0}
+  .tev-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;margin-bottom:3px;line-height:1.25}
+  .tev-desc{font-size:.87rem;color:var(--ink-soft);line-height:1.5}
+  .tev-desc b{color:var(--ink)}
+  .tev-addr{display:flex;align-items:flex-start;gap:6px;font-size:.8rem;color:var(--olive);font-weight:600;margin-top:9px}
+  .tev-addr svg{flex-shrink:0;margin-top:1px}
+  .tev-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+  .tbtn{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.79rem;padding:8px 13px;border-radius:9px;text-decoration:none;border:1.5px solid var(--line);color:var(--ink);cursor:pointer}
+  .tbtn.route{background:#eaf1f6;border-color:#cdd9e3;color:#26506e}
+  .tbtn.route:hover{border-color:#26506e;text-decoration:none}
+  .tbtn.book{background:var(--red);color:#fff;border-color:var(--red)}
+  .tbtn.book:hover{background:var(--red-deep);text-decoration:none}
+  .tev.kind-eat{border-left:4px solid var(--olive)}
+  .tev.kind-fly{border-left:4px solid var(--red)}
+  .tev.kind-see{border-left:4px solid var(--ochre)}
+  .tev.past{opacity:.48}
+  .tev.now{border:2px solid var(--gold);background:linear-gradient(180deg,#fff7e6,var(--paper));box-shadow:var(--shadow)}
+  .tev.now .tev-time::after{content:"JETZT";display:block;font-size:.58rem;font-weight:800;letter-spacing:.06em;background:var(--gold);color:var(--ink);border-radius:5px;padding:2px 4px;margin-top:5px;text-align:center}
+  .tlnote{background:var(--paper);border:1px dashed var(--ochre);border-radius:12px;padding:12px 15px;font-size:.85rem;color:var(--ink-soft);margin:2px 0 8px}
+  .tlnote b{color:var(--ink)}
+  @media(max-width:560px){
+    .tev{padding:12px}
+    .tev-time{width:50px;font-size:.83rem}
+    .tev-title{font-size:1.02rem}
+    .nowbar{top:50px;padding:11px 13px;gap:10px}
+    .nb-jump{padding:8px 11px;font-size:.78rem}
+    .tbtn{font-size:.78rem;padding:9px 12px}
+  }
+
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  .shead{margin-bottom:34px;max-width:680px}
+  .shead h2{font-size:clamp(2rem,5vw,2.9rem);margin:.18em 0 .25em}
+  .shead p{color:var(--ink-soft);font-size:1.05rem}
+  .num{font-family:'Fraunces',serif;font-style:italic;color:var(--ochre);font-size:1.1rem;font-weight:500}
+
+  /* TRANSFER */
+  .transfer-lead{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--olive);border-radius:14px;padding:18px 22px;margin-bottom:28px}
+  .transfer-lead .b{font-size:1.7rem;line-height:1}
+  .grid{display:grid;gap:20px}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .tcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column}
+  .tcard.best{border:2px solid var(--ochre);background:linear-gradient(180deg,#fff7e8,var(--paper))}
+  .tcard .tag{position:absolute;top:-11px;left:18px;background:var(--ochre);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+  .tcard h3{font-size:1.25rem;margin-bottom:2px}
+  .tcard .price{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:600;color:var(--red);margin:8px 0 2px}
+  .tcard .dur{font-size:.85rem;color:var(--ink-soft);font-weight:600;letter-spacing:.03em}
+  .tcard p{font-size:.9rem;color:var(--ink-soft);margin-top:10px;flex:1}
+  .tcard .go{margin-top:14px;font-weight:700;font-size:.88rem}
+
+  /* HOTELS */
+  .hotel{display:grid;grid-template-columns:300px 1fr;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:22px}
+  .hotel.top{border:2px solid var(--gold)}
+  .hmedia{position:relative;min-height:230px;display:flex;align-items:flex-end;padding:14px}
+  .hmedia .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+  .hmedia .label{position:relative;z-index:3;font-family:'Fraunces',serif;font-weight:600;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.55);font-size:1.05rem}
+  .rank{position:absolute;top:12px;left:12px;z-index:4;width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:1.3rem;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+  .hotel.top .rank{background:var(--gold);color:var(--ink)}
+  .crown{position:absolute;top:12px;right:12px;z-index:4;background:var(--gold);color:var(--ink);font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+  .hbody{padding:22px 24px;display:flex;flex-direction:column}
+  .hbody .top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+  .hbody h3{font-size:1.45rem}
+  .hood{font-size:.8rem;font-weight:700;letter-spacing:.04em;color:var(--olive);text-transform:uppercase}
+  .rate{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.9rem;color:var(--ink)}
+  .stars{color:var(--gold);letter-spacing:1px}
+  .pr{text-align:right;flex-shrink:0}
+  .pr .amt{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:600;color:var(--red);line-height:1}
+  .pr small{font-size:.74rem;color:var(--ink-soft)}
+  .feats{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 6px}
+  .feat{background:var(--cream);border:1px solid var(--line);border-radius:8px;padding:4px 10px;font-size:.78rem;font-weight:500;color:var(--ink-soft)}
+  .hbody .why{font-size:.92rem;color:var(--ink-soft);margin-top:6px;flex:1}
+  .hbody .why b{color:var(--ink)}
+  .btns{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:.85rem;padding:9px 16px;border-radius:10px}
+  .btn.primary{background:var(--red);color:#fff}
+  .btn.primary:hover{background:var(--red-deep);text-decoration:none}
+  .btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--ochre);text-decoration:none}
+
+  /* ITINERARY */
+  .day{margin-bottom:30px}
+  .day-head{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;flex-wrap:wrap}
+  .day-head .d{font-family:'Fraunces',serif;font-weight:900;font-size:2rem;color:var(--red)}
+  .day-head .dn{font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:.82rem;color:var(--ink-soft)}
+  .day-head .tagline{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--ochre)}
+  .tl{border-left:2px solid var(--line);margin-left:8px;padding-left:24px;display:flex;flex-direction:column;gap:2px}
+  .ev{position:relative;padding:11px 0}
+  .ev::before{content:"";position:absolute;left:-31px;top:17px;width:12px;height:12px;border-radius:50%;background:var(--ochre);border:3px solid var(--paper);box-shadow:0 0 0 1px var(--line)}
+  .ev.fly::before{background:var(--red)}
+  .ev.eat::before{background:var(--olive)}
+  .ev .t{font-weight:700;font-size:.82rem;color:var(--red);letter-spacing:.03em}
+  .ev .h{font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;margin:1px 0 2px}
+  .ev .x{font-size:.9rem;color:var(--ink-soft)}
+  .note{background:var(--paper);border:1px dashed var(--ochre);border-radius:12px;padding:14px 18px;font-size:.9rem;color:var(--ink-soft);margin-top:6px}
+  .note b{color:var(--ink)}
+
+  /* SIGHTS / EAT / DO */
+  .cards{display:grid;gap:16px}
+  .c{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+  .c h4{font-size:1.12rem;margin-bottom:4px;display:flex;align-items:center;gap:9px}
+  .c .ic{width:30px;height:30px;flex-shrink:0;color:var(--red)}
+  .c p{font-size:.88rem;color:var(--ink-soft)}
+  .c .mini{font-size:.76rem;color:var(--olive);font-weight:700;letter-spacing:.03em;margin-top:8px;display:block}
+
+  .ticket-box{background:linear-gradient(180deg,#fff7e8,var(--paper));border:2px solid var(--ochre);border-radius:16px;padding:22px 24px;margin-top:26px}
+  .ticket-box h3{font-size:1.3rem;color:var(--red-deep);margin-bottom:10px}
+  .ticket-box ul{list-style:none;display:grid;gap:10px}
+  .ticket-box li{display:flex;gap:10px;font-size:.92rem;color:var(--ink-soft)}
+  .ticket-box li b{color:var(--ink)}
+  .ticket-box .dot{color:var(--ochre);font-weight:900}
+
+  /* TIPS */
+  .tips{columns:2;column-gap:26px}
+  .tips .c{break-inside:avoid;margin-bottom:16px}
+  @media(max-width:760px){.tips{columns:1}}
+
+  footer{background:var(--ink);color:#d9cbb8;padding:46px 0 60px;font-size:.85rem}
+  footer h4{color:var(--gold);font-size:1rem;margin-bottom:12px}
+  footer a{color:#e6b66a}
+  .src{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:6px}
+  .disc{margin-top:22px;padding-top:18px;border-top:1px solid #4a3d30;color:#9d8a74;font-size:.78rem;line-height:1.55}
+
+  @media(max-width:860px){
+    .g4{grid-template-columns:repeat(2,1fr)}
+    .g3{grid-template-columns:1fr}
+    .hotel{grid-template-columns:1fr}
+    .hmedia{min-height:180px}
+  }
+  @media(max-width:560px){
+    .g4{grid-template-columns:1fr}
+    section{padding:46px 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Reiseplan · Dein persönlicher Reiseagent</div>
+    <h1>Roma<br><em>la dolce vita</em></h1>
+    <p class="sub">Drei Tage in der Ewigen Stadt — geplant rund um deinen easyJet-Direktflug, mit Fokus auf Essen, Geschichte und die echten römischen Ecken abseits der Massen.</p>
+
+    <div class="flights">
+      <div class="flight">
+        <span class="ico">↗</span>
+        <div><b>MUC → FCO</b><small>Do 18. Juni · 09:40–11:20 · easyJet · direkt</small></div>
+      </div>
+      <div class="flight">
+        <span class="ico">↘</span>
+        <div><b>FCO → MUC</b><small>Sa 20. Juni · 15:05–16:50 · easyJet · direkt</small></div>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span class="pill">2 Reisende</span>
+      <span class="pill">2 Nächte</span>
+      <span class="pill">nur Handgepäck</span>
+      <span class="pill">Unterkunft 60–120 €/Nacht</span>
+      <span class="pill">Erstbesuch · Rom</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#plan" style="color:var(--red)">● Live-Zeitplan</a>
+    <a href="#todo" style="color:var(--red)">⚑ Jetzt erledigen</a>
+    <a href="#flug">Flug</a>
+    <a href="#transfer">Transfer</a>
+    <a href="#hood">Lage</a>
+    <a href="#hotels">Unterkunft</a>
+    <a href="#sights">Must-See</a>
+    <a href="#eat">Must-Eat</a>
+    <a href="#do">Must-Do</a>
+    <a href="#tips">Praktisches</a>
+  </div>
+</nav>
+
+<!-- ITINERARY (live, ganz oben) -->
+<section id="plan" style="padding-top:48px">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow"><span class="num">01</span> &nbsp;Live · wo ihr gerade seid</div>
+      <h2>Euer Zeitplan</h2>
+      <p>Das Wichtigste zuerst: die Leiste zeigt <b>live (Rom-Zeit), wo ihr gerade seid</b> und was als Nächstes kommt — Tipp auf den Button springt zur aktuellen Aktivität. Jeder Punkt hat Adresse, Kurzbeschreibung, einen <b>Route-Button</b> (Google Maps) und — wo nötig — den Buchungslink. „Slot/Reservieren" = vorab buchen.</p>
+    </div>
+
+    <div class="wx">
+      <div class="wx-card">
+        <svg class="ico" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#d9a441" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5" fill="#d9a441"/><path d="M12 1.5v2.5M12 20v2.5M2.5 12H5M19 12h2.5M4.8 4.8l1.8 1.8M17.4 17.4l1.8 1.8M19.2 4.8l-1.8 1.8M6.6 17.4l-1.8 1.8"/></svg>
+        <div><div class="dd">Do · 18. Juni</div><div class="temp">35° <small>/ 19°</small></div><div class="cond">Sonnig</div></div>
+      </div>
+      <div class="wx-card">
+        <svg class="ico" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#d9a441" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5" fill="#d9a441"/><path d="M12 1.5v2.5M12 20v2.5M2.5 12H5M19 12h2.5M4.8 4.8l1.8 1.8M17.4 17.4l1.8 1.8M19.2 4.8l-1.8 1.8M6.6 17.4l-1.8 1.8"/></svg>
+        <div><div class="dd">Fr · 19. Juni</div><div class="temp">35° <small>/ 20°</small></div><div class="cond">Sonnig</div></div>
+      </div>
+      <div class="wx-card">
+        <svg class="ico" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#d9a441" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5" fill="#d9a441"/><path d="M12 1.5v2.5M12 20v2.5M2.5 12H5M19 12h2.5M4.8 4.8l1.8 1.8M17.4 17.4l1.8 1.8M19.2 4.8l-1.8 1.8M6.6 17.4l-1.8 1.8"/></svg>
+        <div><div class="dd">Sa · 20. Juni</div><div class="temp">35° <small>/ 21°</small></div><div class="cond">Sonnig</div></div>
+      </div>
+    </div>
+    <div class="wx-note"><b>Heiß &amp; sonnig — um die 35 °C.</b> Plant viel Wasser (leere Flasche für die Nasoni-Brunnen), Kopfbedeckung &amp; Sonnencreme. Die schattenlosen Open-Air-Sights sind bewusst in die kühleren Randzeiten gelegt: <b>Vatikan früh um 8 Uhr</b>, <b>Kolosseum erst um 16 Uhr</b> (goldenes Licht). Mittags bewusst Pausen im Schatten oder bei einem langen Essen. <i>(Vorhersage Stand 17.6., kann sich leicht ändern.)</i></div>
+
+    <div id="nowbar" class="nowbar">
+      <div class="nb-clock"><span class="nb-dot"></span><span id="nb-time">--:--</span> <small>ROM</small></div>
+      <div class="nb-text" id="nb-text">Timeline wird geladen…</div>
+      <button class="nb-jump" id="nb-jump" type="button">Zur aktuellen Aktivität ↓</button>
+    </div>
+    <div id="timeline"></div>
+  </div>
+</section>
+
+<!-- FLIGHT & COUNTDOWN -->
+<section id="flug">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow"><span class="num" style="color:var(--gold)">02</span> &nbsp;Dein Flug</div>
+      <h2>Countdown &amp; Timing</h2>
+      <p>Eure easyJet-Direktflüge auf einen Blick. <b>Nur Handgepäck</b> → keine Gepäckabgabe, online einchecken und direkt zum Gate. Das Gate schließt 30 Min vor Abflug.</p>
+    </div>
+
+    <div class="cd-wrap">
+      <div class="cd-label" id="cd-label">Noch bis zum Abflug nach Rom</div>
+      <div class="cd-flight" id="cd-flight">MUC → FCO · <span>18. Juni, 09:40</span></div>
+      <div class="cd-grid">
+        <div class="cd-unit"><div class="cd-num" id="cd-d">–</div><div class="cd-u">Tage</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cd-h">–</div><div class="cd-u">Stunden</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cd-m">–</div><div class="cd-u">Minuten</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cd-s">–</div><div class="cd-u">Sekunden</div></div>
+      </div>
+    </div>
+
+    <div class="fcards">
+      <div class="fc">
+        <div class="dir"><span>↗</span> Hinflug</div>
+        <div class="route">MUC → Rom Fiumicino · Do 18. Juni</div>
+        <table>
+          <tr class="hl"><td>Am Flughafen sein (nur Handgepäck)</td><td>08:00</td></tr>
+          <tr><td>Gate schließt</td><td>09:10</td></tr>
+          <tr><td>Abflug München</td><td>09:40</td></tr>
+          <tr><td>Ankunft Rom (FCO)</td><td>11:20</td></tr>
+          <tr><td>Flugdauer · easyJet · direkt</td><td>1h 40m</td></tr>
+        </table>
+      </div>
+      <div class="fc">
+        <div class="dir"><span>↘</span> Rückflug</div>
+        <div class="route">Rom Fiumicino → MUC · Sa 20. Juni</div>
+        <table>
+          <tr class="hl"><td>Am Flughafen sein (nur Handgepäck)</td><td>13:35</td></tr>
+          <tr><td>Gate schließt</td><td>14:35</td></tr>
+          <tr><td>Abflug Rom (FCO)</td><td>15:05</td></tr>
+          <tr><td>Ankunft München</td><td>16:50</td></tr>
+          <tr><td>Flugdauer · easyJet · direkt</td><td>1h 45m</td></tr>
+        </table>
+      </div>
+    </div>
+    <p class="fnote"><b>Tipp:</b> Beide Strecken sind innerhalb des Schengen-Raums — kein Pass nötig (Perso reicht), keine lange Passkontrolle. Ohne Aufgabegepäck reicht ~1,5 Std vor Abflug locker. <b>Rückflug:</b> Damit ihr 13:35 in FCO seid, spätestens 12:30 mit dem Leonardo Express ab Termini (siehe unten).</p>
+  </div>
+</section>
+
+<!-- TODO / PREP -->
+<section id="todo">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow" style="color:var(--red)">⚑ &nbsp;Bevor es losgeht</div>
+      <h2>Jetzt erledigen</h2>
+      <p>Abhaken zum Wegklicken. Die <b style="color:var(--red)">roten</b> Punkte müssen <b>vor der Reise</b> erledigt sein — manche Tickets gibt es nur online und sie sind schnell weg.</p>
+    </div>
+
+    <div class="todo-alarm">
+      <span class="big" id="todo-big">⏳</span>
+      <div class="t"><b>Abflug: morgen, Donnerstag 09:40 Uhr.</b><br>Heißt: die roten Aufgaben heute erledigen — Tickets &amp; Reservierungen, sonst sind sie für eure Tage evtl. ausgebucht.</div>
+    </div>
+
+    <div class="todo-group">
+      <div class="gh"><span class="pri now">Muss vorab</span> Heute buchen &amp; klären</div>
+      <div class="checklist">
+        <label class="chk now-item"><input type="checkbox"><span class="ctxt"><b>Online-Check-in für den Flug</b> (MUC→FCO morgen). Bordkarten aufs Handy laden. <small>easyJet-Check-in schließt 2 Std vor Abflug — heute Abend erledigen, dann morgen direkt zum Gate.</small></span></label>
+        <label class="chk now-item"><input type="checkbox"><span class="ctxt"><b>Kolosseum-Ticket für Do-Nachmittag</b> (Kolosseum + Forum + Palatin, ein Kombiticket). <a href="https://ticketing.colosseo.it/en/" target="_blank" rel="noopener">ticketing.colosseo.it (offiziell)</a>. <small>Es gibt KEINE Tickets an der Tür. So kurzfristig kann es eng sein — falls ausgebucht: geführte Tour buchen (haben eigene Kontingente) oder Slot am Vormittag/Tag 3 nehmen.</small></span></label>
+        <label class="chk now-item"><input type="checkbox"><span class="ctxt"><b>Vatikan-Ticket für Fr-Vormittag</b>, früher Slot (8:00–8:30) für wenig Andrang. <a href="https://tickets.museivaticani.va" target="_blank" rel="noopener">tickets.museivaticani.va</a>. <small>Sixtinische Kapelle inklusive. Bestätigung aufs Handy.</small></span></label>
+        <label class="chk now-item"><input type="checkbox"><span class="ctxt"><b>Pantheon-Reservierung (Fr)</b> buchen. <small>Kleiner Eintritt; mit Zeitfenster spart ihr die Schlange.</small></span></label>
+        <label class="chk now-item"><input type="checkbox"><span class="ctxt"><b>Tisch reservieren: Do-Abend (Monti) &amp; Fr-Abend (Trastevere).</b> <small>Gute Trattorien (z. B. Felice a Testaccio, Da Enzo) sind freitags voll — jetzt reservieren oder früh (19:30) hingehen.</small></span></label>
+        <label class="chk now-item"><input type="checkbox"><span class="ctxt"><b>Gastgeber kurz die Ankunftszeit bestätigen</b> — Via dell'Olmata 60. <small>Check-in 12–13 Uhr ist vereinbart, jemand trifft euch vor Ort. Schreibt ihm noch eine Nachricht mit Landung 11:20 / „sind gegen 12:35 da", damit das Treffen klappt.</small></span></label>
+      </div>
+    </div>
+
+    <div class="todo-group">
+      <div class="gh"><span class="pri soon">Zum Packen</span> Vor dem Losfahren</div>
+      <div class="checklist">
+        <label class="chk soon-item"><input type="checkbox"><span class="ctxt"><b>Personalausweis</b> (Schengen — kein Reisepass nötig) + alle Buchungen offline/als Screenshot. <small>Flug, Unterkunft, Kolosseum, Vatikan, Pantheon.</small></span></label>
+        <label class="chk soon-item"><input type="checkbox"><span class="ctxt"><b>Trenitalia-App</b> laden (Leonardo-Express-Ticket). <small>Tickets könnt ihr auch am Automaten kaufen — App ist schneller.</small></span></label>
+        <label class="chk soon-item"><input type="checkbox"><span class="ctxt"><b>Vatikan-tauglich packen:</b> je 1 Teil, das Schultern &amp; Knie bedeckt. <small>Sonst kein Einlass in Petersdom/Vatikan.</small></span></label>
+        <label class="chk soon-item"><input type="checkbox"><span class="ctxt"><b>Bequeme, eingelaufene Schuhe</b> + leichte Sommerkleidung (28–32 °C). <small>Viel Kopfsteinpflaster.</small></span></label>
+        <label class="chk soon-item"><input type="checkbox"><span class="ctxt"><b>Sonnencreme, Kappe, leere Wasserflasche</b> (für die Nasoni-Brunnen), Powerbank, Reiseadapter (Italien Typ L/F). <small>Etwas Bargeld + Karte mitnehmen.</small></span></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFER -->
+<section id="transfer">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow"><span class="num">03</span> &nbsp;Vom Flughafen in die Stadt</div>
+      <h2>Fiumicino → Rom Zentrum</h2>
+      <p>Ihr landet um <b>11:20 in Fiumicino (FCO)</b>. Hier die vier Wege ins Zentrum — vom schnellsten bis zum günstigsten. Meine Empfehlung für euch ist der <b>Leonardo Express</b>: bequem, kein Stau, direkt zum Hauptbahnhof Termini.</p>
+    </div>
+
+    <div class="transfer-lead">
+      <span class="b">🚆</span>
+      <div><b>So macht ihr's:</b> Nach der Landung den Schildern „Treni / Trains“ folgen (ca. 10 Min Fußweg). Leonardo-Express-Ticket vorab in der App <b>Trenitalia</b> oder am Automaten kaufen, entwerten/QR scannen, in 32 Min nach <b>Roma Termini</b>. Von dort mit Metro Linie B (2 Stationen) oder 8–12 Min Taxi/Fußweg zu eurer Unterkunft in Monti.</div>
+    </div>
+
+    <div class="grid g4">
+      <div class="tcard best">
+        <span class="tag">Empfehlung</span>
+        <h3>Leonardo Express</h3>
+        <div class="price">14 €</div>
+        <div class="dur">32 Min · direkt nach Termini</div>
+        <p>Nonstop-Zug, alle 15–30 Min. Kein Verkehr, planbar. Pro Person; vorab online oder am Automaten buchen.</p>
+        <a class="go" href="https://www.trenitalia.com/en/services/leonardo_express.html" target="_blank" rel="noopener">Tickets &amp; Infos →</a>
+      </div>
+      <div class="tcard">
+        <h3>Taxi (Festpreis)</h3>
+        <div class="price">55 €</div>
+        <div class="dur">35–55 Min · Tür zu Tür</div>
+        <p>Offizieller Festpreis bis innerhalb der Aurelianischen Mauer — für 2 Personen mit Gepäck oft die bequemste Option. Nur lizenzierte weiße Taxis, Preis vorher bestätigen.</p>
+        <a class="go" href="https://www.adr.it/web/aeroporti-di-roma-en/pax-fco-taxi" target="_blank" rel="noopener">Offizielle Tarife →</a>
+      </div>
+      <div class="tcard">
+        <h3>Shuttle-Bus</h3>
+        <div class="price">~6–11 €</div>
+        <div class="dur">50–60 Min · nach Termini</div>
+        <p>Günstigste Option (Terravision, SIT, Rome Airport Bus). Alle ~40 Min. Pro Person, online billiger. Kann im Verkehr stehen.</p>
+        <a class="go" href="https://www.omio.com" target="_blank" rel="noopener">Bus buchen →</a>
+      </div>
+      <div class="tcard">
+        <h3>Regionalzug FL1</h3>
+        <div class="price">~8 €</div>
+        <div class="dur">~45–60 Min · diverse Stationen</div>
+        <p>Günstiger als der Express, hält aber an mehreren Stationen (nicht Termini, sondern z. B. Trastevere/Tiburtina). Gut, falls eure Unterkunft an einer FL1-Station liegt.</p>
+        <a class="go" href="https://www.trenitalia.com" target="_blank" rel="noopener">Verbindung →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEIGHBORHOOD -->
+<section id="hood">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow"><span class="num">04</span> &nbsp;Eure Lage</div>
+      <h2>Eure Gegend &amp; die Viertel</h2>
+      <p>Ihr schlaft sehr zentral in <b>Esquilino/Monti</b> (Via dell'Olmata, neben Santa Maria Maggiore) — von hier erreicht ihr alles zu Fuß oder mit einer kurzen Metro-Fahrt. So nutzt ihr die wichtigsten Viertel:</p>
+    </div>
+    <div class="grid g2">
+      <div class="c" style="border-left:5px solid var(--gold)">
+        <h4>Monti &nbsp;<span style="font-size:.7rem;background:var(--gold);color:var(--ink);padding:3px 9px;border-radius:999px;letter-spacing:.06em">EUER HEIM-VIERTEL</span></h4>
+        <p>Das hippe Altstadtviertel direkt vor eurer Tür (~5–8 Min) und <b>neben Kolosseum &amp; Forum</b>. Verwinkelte Gassen, Weinbars, kleine Trattorien, Vintage-Läden — lebendig, aber nicht überlaufen. Euer Spot für Aperitivo &amp; Abendessen an Tag 1.</p>
+        <span class="mini">★ Zentral · läuferfreundlich · Essen · Geschichte vor der Haustür</span>
+      </div>
+      <div class="c" style="border-left:5px solid var(--olive)">
+        <h4>Trastevere &nbsp;<span style="font-size:.7rem;background:var(--olive);color:#fff;padding:3px 9px;border-radius:999px;letter-spacing:.06em">ZUM ESSEN &amp; ABEND</span></h4>
+        <p>Das romantischste Viertel: Kopfsteinpflaster, Efeu, beste Abend- und Trattorienszene der Stadt. Über den Tiber, ~15 Min mit Bus/Taxi von euch. Euer Ziel für den Abend an Tag 2 — Essen, goldene Gassen, durch die Bars treiben.</p>
+        <span class="mini">★ Atmosphäre · Top-Essen · Nachtleben · lokal</span>
+      </div>
+    </div>
+    <div class="note" style="margin-top:18px"><b>Die übrigen Ecken:</b> <b>Centro Storico</b> (Pantheon, Navona, Trevi) — tagsüber auf dem Spaziergang an Tag 2, ~12–15 Min zu Fuß von euch. <b>Vatikan/Prati</b> — der Vatikan-Vormittag an Tag 2, am besten mit der Metro A (ab Termini). <b>Testaccio</b> — das Feinschmecker-Viertel mit Markt &amp; legendären Trattorien (Felice, Flavio), ein lohnender Foodie-Abstecher.</div>
+  </div>
+</section>
+
+<!-- HOTELS -->
+<section id="hotels">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow"><span class="num">05</span> &nbsp;Eure Unterkunft</div>
+      <h2>Eure Basis in Rom</h2>
+      <p>Gebucht &amp; bestätigt: <b>Cozy apartments near Santa Maria</b>, Via dell'Olmata 60 — direkt an der Basilica Santa Maria Maggiore, 8 Min zu Fuß zum Termini. Der ganze Tagesplan ist auf diese Adresse getaktet.</p>
+    </div>
+
+    <!-- 1 -->
+    <div class="hotel top">
+      <div class="hmedia" style="background:linear-gradient(150deg,#7c2820,#b9603a)">
+        <span class="rank">✓</span><span class="crown">Eure Buchung</span>
+        <img class="ph" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'" src="https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=600&q=70" alt="Monti">
+        <span class="label">Via dell'Olmata 60 · neben Santa Maria Maggiore</span>
+      </div>
+      <div class="hbody">
+        <div class="top-row">
+          <div>
+            <span class="hood">Esquilino / Monti · eure Basis</span>
+            <h3>Cozy apartments in Rome near Santa Maria</h3>
+            <span class="rate"><span class="stars">9,9</span> Außergewöhnlich · 71 Bewertungen · Lage 10/10</span>
+          </div>
+          <div class="pr"><div class="amt">95 €</div><small>/ Nacht · 190 € gesamt</small></div>
+        </div>
+        <div class="feats"><span class="feat">8 Min → Termini</span><span class="feat">~7 Min → Monti</span><span class="feat">~14 Min → Kolosseum</span><span class="feat">52 m² · Küche</span></div>
+        <p class="why"><b>Eure gebuchte Unterkunft.</b> Top-Lage (10/10): Via dell'Olmata, direkt an der Basilica Santa Maria Maggiore. Perfekt für eure An-/Abreise (nur 8 Min zu Fuß zum Termini, wo der Leonardo Express hält) und fußläufig zu Monti, Kolosseum &amp; Trevi. Der ganze Tagesplan unten ist auf diese Adresse getaktet. <b>Check-in:</b> jemand trifft euch vor Ort, Ankunft <b>12:00–13:00 ist vereinbart</b> — passt genau zur Landung 11:20.</p>
+        <div class="availbadge"><span class="d"></span> Gebucht · Via dell'Olmata 60, Roma · Check-in 12–13 Uhr</div>
+        <div class="btns">
+          <a class="btn primary" href="https://www.booking.com/hotel/it/castel-vinci-leni.de.html?checkin=2026-06-18&checkout=2026-06-20&group_adults=2&no_rooms=1&group_children=0" target="_blank" rel="noopener">Buchung ansehen</a>
+          <a class="btn ghost" href="https://www.google.com/maps/search/Via+dell'Olmata+60+Roma" target="_blank" rel="noopener">Auf Karte</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="note"><b>Eure Gegend (Esquilino/Monti):</b> Ihr wohnt zwischen Santa Maria Maggiore und dem Termini — sehr zentral und bestens angebunden. Direkt nebenan: die Basilika (gratis, prächtig). In 5–8 Min seid ihr mitten in Monti mit Weinbars &amp; Trattorien, in ~14 Min am Kolosseum. Supermarkt, Bars und Caffè gibt's rund um die Via Cavour. Tipp: abends zum Essen nach Monti oder rüber nach Trastevere — schlafen tut ihr ideal hier.</div>
+  </div>
+</section>
+
+<!-- SIGHTS -->
+<section id="sights">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow"><span class="num">06</span> &nbsp;Must-See</div>
+      <h2>Die Klassiker für den Erstbesuch</h2>
+      <p>In 3 Tagen schafft ihr das Wichtigste bequem. Alles im Plan oben verteilt.</p>
+    </div>
+    <div class="cards g3">
+      <div class="c"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V8m4 13V8m6 13V8m4 13V8M3 8h18l-2-4H5L3 8Z"/></svg>Kolosseum</h4><p>Das Wahrzeichen. Mit Forum Romanum &amp; Palatin ein Kombiticket — ein halber Tag antikes Rom.</p><span class="mini">Tipp: Zeitfenster vorab buchen</span></div>
+      <div class="c"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 7v2h18V7l-9-5ZM5 9v9m4-9v9m6-9v9m4-9v9M3 21h18"/></svg>Forum &amp; Palatin</h4><p>Wo das antike Rom regierte. Über dem Forum thront der Palatin mit Blick — Geschichte zum Anfassen.</p><span class="mini">Im Kolosseum-Ticket enthalten</span></div>
+      <div class="c"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 0v18M3 12h18"/></svg>Vatikan &amp; Sixtina</h4><p>Vatikanische Museen, Michelangelos Decke, Petersdom. Früh hin, sonst lange Schlangen.</p><span class="mini">60 Tage vorher buchbar</span></div>
+      <div class="c"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V10l8-6 8 6v11M9 21v-6h6v6M4 10h16"/></svg>Pantheon</h4><p>Das besterhaltene Bauwerk der Antike, freier Eintritt mit Reservierung. Das Loch in der Kuppel ist unvergesslich.</p><span class="mini">Mitten im Centro Storico</span></div>
+      <div class="c"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18c3-6 15-6 18 0M5 18v2m14-2v2M8 12l1-4m6 4-1-4M12 4v4"/></svg>Trevi-Brunnen</h4><p>Barocke Pracht. Abends ohne Tagesmassen am schönsten. Münze rein = Wiederkehr nach Rom.</p><span class="mini">Abends besuchen</span></div>
+      <div class="c"><h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M6 20V9m12 11V9M4 9l8-5 8 5M10 20v-5h4v5"/></svg>Piazza Navona &amp; Spanische Treppe</h4><p>Berninis Brunnen-Platz und die berühmte Treppe — perfekt zum Schlendern und Leute beobachten.</p><span class="mini">Auf dem Spaziergang Tag 2/3</span></div>
+    </div>
+
+    <div class="ticket-box">
+      <h3>Tickets — HEUTE buchen (Abreise morgen!)</h3>
+      <ul>
+        <li><span class="dot">●</span><div><b>Kolosseum (Do-Nachmittag):</b> Kombiticket Kolosseum + Forum + Palatin über <a href="https://ticketing.colosseo.it/en/" target="_blank" rel="noopener">ticketing.colosseo.it (offiziell)</a>. <b>Keine Tickets an der Tür</b>, und so kurzfristig kann der Wunsch-Slot knapp sein. Falls ausverkauft: <b>geführte Tour</b> (eigene Kontingente) oder freien Slot am Do-Vormittag / Sa nehmen.</div></li>
+        <li><span class="dot">●</span><div><b>Vatikanische Museen (Fr 8:00):</b> früher Slot über <a href="https://tickets.museivaticani.va" target="_blank" rel="noopener">tickets.museivaticani.va</a> (ca. 25 € inkl. Vorverkauf). Bestätigung aufs Handy.</div></li>
+        <li><span class="dot">●</span><div><b>Pantheon (Fr):</b> kleiner Eintritt, Zeitfenster reservieren spart die Schlange.</div></li>
+        <li><span class="dot">●</span><div><b>Bestätigungen offline speichern</b> (Screenshots) — am Eingang QR-Code zeigen.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EAT -->
+<section id="eat">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow"><span class="num">07</span> &nbsp;Must-Eat</div>
+      <h2>Was ihr essen müsst</h2>
+      <p>Römische Küche ist einfach und genial. Diese Dinge gehören auf eure Liste — meist in Monti, Trastevere oder Testaccio.</p>
+    </div>
+    <div class="cards g3">
+      <div class="c"><h4>Cacio e Pepe</h4><p>Pasta nur mit Pecorino &amp; Pfeffer — Roms Wunder aus drei Zutaten. Legendär bei <b>Felice a Testaccio</b> (am Tisch gemischt) und <b>Flavio al Velavevodetto</b>.</p><span class="mini">Reservieren empfohlen</span></div>
+      <div class="c"><h4>Carbonara &amp; Amatriciana</h4><p>Die zwei anderen römischen Pasta-Säulen. Ei, Guanciale, Pecorino — keine Sahne! In jeder guten Monti-/Trastevere-Trattoria.</p><span class="mini">Echte Trattoria, kein Touristenmenü</span></div>
+      <div class="c"><h4>Pizza al taglio &amp; Supplì</h4><p>Pizza nach Gewicht im Stehen + frittierte Reisbällchen. <b>Bonci/Pizzarium</b> (Prati), <b>Antico Forno ai Serpenti</b> (Monti).</p><span class="mini">Perfekt für mittags</span></div>
+      <div class="c"><h4>Carciofi alla Giudia</h4><p>Knusprig frittierte Artischocke — Spezialität aus dem jüdischen Ghetto. Saisonal, ein Muss wenn verfügbar.</p><span class="mini">Jüdisches Ghetto, nahe Trastevere</span></div>
+      <div class="c"><h4>Gelato (das echte)</h4><p>Meidet Neonfarben. Top: <b>Giolitti</b>, <b>Fatamorgana</b>, <b>Otaleg</b> (Trastevere). Pistazie als Qualitätstest.</p><span class="mini">Natürliche, gedeckte Farben</span></div>
+      <div class="c"><h4>Maritozzo &amp; Espresso</h4><p>Süßes Sahnebrötchen mit Sahne — perfekt als süße Pause am Nachmittag. Dazu Espresso im Stehen an der Bar (billiger &amp; römischer). <b>Sant'Eustachio</b>, <b>Tazza d'Oro</b>.</p><span class="mini">Süße Pause zwischendurch</span></div>
+    </div>
+
+    <div class="ticket-box" style="border-color:var(--olive);background:linear-gradient(180deg,#eef0e4,var(--paper))">
+      <h3 style="color:var(--olive)">Günstig &amp; trotzdem richtig gut</h3>
+      <ul>
+        <li><span class="dot" style="color:var(--olive)">●</span><div><b>Monti (Tag 1, ~5 Min von euch):</b> <b>La Taverna Romana</b> — winzige Klassiker-Trattoria, Pasta 11–13 € · <b>Al42 by Pasta Chef</b> — frische Pasta „to go/sitzen", 8–10 € · <b>Alle Carrette</b> — knusprige Pizza, 8–10 €.</div></li>
+        <li><span class="dot" style="color:var(--olive)">●</span><div><b>Trastevere (Tag 2):</b> <b>Tonnarello</b> — riesige Portionen, Pasta 12–14 €, keine Reservierung · <b>Trattoria Da Teo</b> — top Preis-Leistung, reservieren · <b>Pizzeria Ai Marmi</b> — kultige günstige Pizza, ~8 €.</div></li>
+        <li><span class="dot" style="color:var(--olive)">●</span><div><b>Überall sparen:</b> Pasta für 12–15 € statt 28 € gibt's dort, wo Römer essen — meidet Lokale direkt an Kolosseum/Navona mit Fotomenüs. Mittags Pizza al taglio nach Gewicht (3–6 €). Espresso/Wasser <b>im Stehen an der Bar</b> ist am günstigsten.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DO -->
+<section id="do">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow"><span class="num">08</span> &nbsp;Must-Do</div>
+      <h2>Erlebnisse, kein Stress</h2>
+    </div>
+    <div class="cards g3">
+      <div class="c"><h4>Aperitivo zum Sonnenuntergang</h4><p>Aperol/Negroni mit kleinen Häppchen, 18–20 Uhr. In Monti oder auf einer Dachterrasse.</p></div>
+      <div class="c"><h4>Trastevere am Abend</h4><p>Einfach durch die beleuchteten Gassen treiben lassen — Straßenmusik, volle Piazzas, lebendigstes Rom.</p></div>
+      <div class="c"><h4>Sonnenaufgang/-untergang am Gianicolo</h4><p>Der Hügel über Trastevere bietet das beste Panorama über ganz Rom — kostenlos.</p></div>
+      <div class="c"><h4>Markt am Morgen</h4><p>Campo de' Fiori oder der Markt von Testaccio — Käse, Obst, Stimmung. Ideal Tag 3 früh.</p></div>
+      <div class="c"><h4>Münze in den Trevi</h4><p>Touristisch, klar — aber abends ohne Massen ein schöner Moment. Tradition: rechte Hand über linke Schulter.</p></div>
+      <div class="c"><h4>Einfach verlaufen</h4><p>Rom belohnt das Ziellose: hinter jeder Ecke ein Brunnen, eine Kirche, eine Piazza. Plant bewusst Leerlauf ein.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section id="tips" style="border-bottom:none">
+  <div class="wrap">
+    <div class="shead">
+      <div class="eyebrow"><span class="num">09</span> &nbsp;Praktisches</div>
+      <h2>Gut zu wissen</h2>
+    </div>
+    <div class="tips">
+      <div class="c"><h4>Euer Wetter</h4><p>Vorhersage: <b>sonnig, ~35 °C</b> tagsüber, 19–21 °C nachts (Stand 17.6.). Sehr heiß — viel trinken, Kappe, Sonnencreme, Mittagshitze meiden. Bei Kirchen/Vatikan: <b>Schultern &amp; Knie bedecken</b> (Dresscode).</p></div>
+      <div class="c"><h4>Bequeme Schuhe</h4><p>Ihr lauft viel über Kopfsteinpflaster. Eingelaufene Sneaker statt neue Schuhe.</p></div>
+      <div class="c"><h4>Wasser gratis</h4><p>Die „Nasoni“-Trinkbrunnen in der ganzen Stadt geben kostenloses, frisches Wasser. Flasche mitnehmen und auffüllen.</p></div>
+      <div class="c"><h4>In der Stadt unterwegs</h4><p>Meiste Sehenswürdigkeiten sind zu Fuß machbar. Sonst Metro/Bus: Einzelticket 1,50 €, 24-Std-Ticket 7 €. Tickets in Tabaccherie oder per App.</p></div>
+      <div class="c"><h4>Geld &amp; Trinkgeld</h4><p>Karte wird fast überall akzeptiert. Trinkgeld nicht zwingend — aufrunden reicht. Achtung auf „coperto“ (Gedeckgebühr) auf der Rechnung.</p></div>
+      <div class="c"><h4>Taschendiebe</h4><p>In Bus 64, an Termini und an Touristenhotspots aufpassen. Wertsachen vorne tragen, Rucksack im Blick.</p></div>
+      <div class="c"><h4>Reservieren</h4><p>Beliebte Trattorien (Felice, Flavio) abends unbedingt vorab reservieren — gerade am Freitag/Samstag.</p></div>
+      <div class="c"><h4>Vor der Abreise</h4><p>Die komplette Checkliste steht oben unter <a href="#todo">„Jetzt erledigen"</a> — Tickets, Reservierungen, Online-Check-in &amp; Packen. Heute abhaken!</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h4>Quellen</h4>
+    <p>Recherche Juni 2026. Preise &amp; Verfügbarkeiten sind Richtwerte — bitte über die Links final prüfen.</p>
+    <div class="src">
+      <a href="https://leonardo-express.com/en/en-leonardo-express-tickets/" target="_blank" rel="noopener">Leonardo Express</a>
+      <a href="https://www.adr.it/web/aeroporti-di-roma-en/pax-fco-taxi" target="_blank" rel="noopener">Aeroporti di Roma (Taxi-Tarif)</a>
+      <a href="https://untolditaly.com/rome-airport-transfers/" target="_blank" rel="noopener">Untold Italy · Transfers</a>
+      <a href="https://santorinidave.com/best-places-rome" target="_blank" rel="noopener">Beste Viertel</a>
+      <a href="https://www.timeout.com/rome/hotels/best-cheap-hotels-in-rome" target="_blank" rel="noopener">Time Out · Hotels</a>
+      <a href="https://www.tripadvisor.com/Hotels-g187791-zfn7230912-Rome_Lazio-Hotels.html" target="_blank" rel="noopener">Tripadvisor · Trastevere</a>
+      <a href="https://untolditaly.com/how-to-buy-tickets-for-the-vatican-museums/" target="_blank" rel="noopener">Vatikan-Tickets</a>
+      <a href="https://www.rome.info/attractions/colosseum/tickets/" target="_blank" rel="noopener">Kolosseum-Tickets</a>
+      <a href="https://www.theitalyedit.com/best-cacio-pepe-pasta-rome/" target="_blank" rel="noopener">Beste Cacio e Pepe</a>
+      <a href="https://www.booking.com" target="_blank" rel="noopener">Booking.com (Unterkünfte, live 16.6.)</a>
+      <a href="https://weather.com" target="_blank" rel="noopener">Wettervorhersage (Stand 17.6.)</a>
+    </div>
+    <div class="disc">Erstellt als persönlicher Reiseplan für deinen Rom-Trip 18.–20. Juni 2026. Die 6 Unterkünfte wurden am 16.6.2026 live auf Booking.com (bzw. Airbnb für Karte 6) für 18.–20. Juni / 2 Personen geprüft und nach Bewertung gerankt; Preise und Verfügbarkeit können sich ändern — vor dem Buchen kurz gegenchecken. Buona permanenza a Roma!</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Schengen / CEST = UTC+2
+  var outbound = new Date('2026-06-18T09:40:00+02:00');
+  var inbound  = new Date('2026-06-20T15:05:00+02:00');
+  var elD=document.getElementById('cd-d'),elH=document.getElementById('cd-h'),
+      elM=document.getElementById('cd-m'),elS=document.getElementById('cd-s'),
+      elLabel=document.getElementById('cd-label'),elFlight=document.getElementById('cd-flight');
+  function pad(n){return (n<10?'0':'')+n;}
+  function tick(){
+    var now=new Date(), target, label, flight;
+    if(now < outbound){
+      target=outbound; label='Noch bis zum Abflug nach Rom';
+      flight='MUC → FCO · <span>18. Juni, 09:40</span>';
+    } else if(now < inbound){
+      target=inbound; label='Ihr seid in Rom! Noch bis zum Rückflug';
+      flight='FCO → MUC · <span>20. Juni, 15:05</span>';
+    } else {
+      elLabel.textContent='Reise beendet';
+      elFlight.innerHTML='Arrivederci, Roma! <span>♥</span>';
+      elD.textContent='0';elH.textContent='00';elM.textContent='00';elS.textContent='00';
+      return;
+    }
+    elLabel.textContent=label; elFlight.innerHTML=flight;
+    var diff=Math.floor((target-now)/1000);
+    var d=Math.floor(diff/86400); diff-=d*86400;
+    var h=Math.floor(diff/3600); diff-=h*3600;
+    var m=Math.floor(diff/60); var s=diff-m*60;
+    elD.textContent=d; elH.textContent=pad(h); elM.textContent=pad(m); elS.textContent=pad(s);
+  }
+  var todoBig=document.getElementById('todo-big');
+  function todoTick(){
+    if(!todoBig) return;
+    var now=new Date(), diff=Math.floor((outbound-now)/1000);
+    if(diff<=0){ todoBig.textContent='✈'; return; }
+    var d=Math.floor(diff/86400), h=Math.floor((diff%86400)/3600);
+    todoBig.textContent = d>0 ? (d+' T '+h+' Std') : (h+' Std');
+  }
+  tick(); todoTick(); setInterval(function(){tick();todoTick();},1000);
+
+  // Checklist abhaken
+  document.querySelectorAll('.chk input[type=checkbox]').forEach(function(cb){
+    cb.addEventListener('change', function(){
+      this.closest('.chk').classList.toggle('done', this.checked);
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var PIN='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/></svg>';
+  function maps(q){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(q);}
+  var TRENI='https://www.trenitalia.com/en/services/leonardo_express.html';
+  var DAYS=[
+    {date:'Donnerstag · 18. Juni', sub:'Ankunft & antikes Rom', events:[
+      {iso:'2026-06-18T11:20:00+02:00',t:'11:20',flag:'Flug',kind:'fly',title:'Landung Fiumicino (FCO)',desc:'Schengen – kein Pass nötig. Nur Handgepäck, also zügig den Schildern „Treni" folgen (~10 Min).',addr:'Aeroporto di Fiumicino (FCO)'},
+      {iso:'2026-06-18T11:50:00+02:00',t:'11:50',kind:'fly',title:'Leonardo Express → Roma Termini',desc:'Nonstop-Zug, 32 Min. Ticket 14 € p.P., vorab in der Trenitalia-App.',addr:'Stazione Roma Termini',book:{url:TRENI,label:'Ticket · 14 €'}},
+      {iso:'2026-06-18T12:35:00+02:00',t:'12:35',kind:'see',title:'Check-in · jemand trifft euch vor Ort',desc:'Ankunft 12–13 Uhr ist vereinbart. Ohne Gepäck nur Schlüssel holen und kurz ankommen.',addr:"Via dell'Olmata 60, Roma"},
+      {iso:'2026-06-18T13:00:00+02:00',t:'13:00',kind:'eat',title:'Mittag: Pizza al taglio & Supplì',desc:'Schneller römischer Imbiss im Stehen, ~8–12 € p.P.',addr:'Antico Forno ai Serpenti, Via dei Serpenti 122, Roma'},
+      {iso:'2026-06-18T13:45:00+02:00',t:'13:45',kind:'see',title:'Kapitol & Vittoriano-Terrasse',desc:'Piazza del Campidoglio (Michelangelo) + Panorama-Aufzug aufs Vittoriano (~12 € p.P.) — bester Rundblick und etwas Schatten in der Mittagshitze.',addr:'Piazza del Campidoglio, Roma'},
+      {iso:'2026-06-18T16:00:00+02:00',t:'16:00',flag:'Slot · Ticket',kind:'see',title:'Kolosseum + Forum + Palatin',desc:'Bewusst spät: kühler & goldenes Licht. Erst Kolosseum, dann Forum & Palatin (vor letztem Einlass ~18:15). ~3 Std.',addr:'Colosseo, Piazza del Colosseo 1, Roma',book:{url:'https://ticketing.colosseo.it/en/',label:'Tickets · ab 18 €'}},
+      {iso:'2026-06-18T19:15:00+02:00',t:'19:15',kind:'eat',title:'Aperitivo in Monti',desc:'Spritz/Negroni mit Häppchen, ~10 € p.P.',addr:'Piazza della Madonna dei Monti, Roma'},
+      {iso:'2026-06-18T20:15:00+02:00',t:'20:15',flag:'Reservieren',kind:'eat',title:'Abendessen: La Taverna Romana',desc:'Klassische Trattoria, Pasta 11–13 €, ~20 € p.P. Klein → reservieren. Günstiger: Pizza bei Alle Carrette (~8–10 €).',addr:'La Taverna Romana, Via della Madonna dei Monti 79, Roma',book:{url:'https://www.google.com/maps/search/La+Taverna+Romana+Roma',label:'Reservieren'}},
+      {iso:'2026-06-18T21:45:00+02:00',t:'21:45',kind:'see',title:'Trevi-Brunnen bei Nacht',desc:'Abends leerer & magisch. Münze über die linke Schulter. Danach ~13 Min heim.',addr:'Fontana di Trevi, Roma'}
+    ]},
+    {date:'Freitag · 19. Juni', sub:'Vatikan, Zentrum & Trastevere', note:'<b>Tempo:</b> Tag 2 ist euer vollster — bei 35 °C ruhig angehen: langes, schattiges Mittagessen, viel trinken, nicht hetzen. Wenn\'s zu viel wird, lasst den Ghetto-Abstecher weg und geht direkt Richtung Trastevere.', events:[
+      {iso:'2026-06-19T07:30:00+02:00',t:'07:30',kind:'see',title:'Aufbruch zum Vatikan (Metro A)',desc:'Metro A ab Termini Richtung Battistini → Ottaviano (~12 Min) + 8 Min Fußweg.',addr:'Stazione Roma Termini'},
+      {iso:'2026-06-19T08:00:00+02:00',t:'08:00',flag:'Slot · Ticket',kind:'see',title:'Vatikanische Museen + Sixtina',desc:'Früher Slot = wenig Andrang. Plant ~3 Std bis zur Sixtinischen Kapelle.',addr:'Musei Vaticani, Viale Vaticano 100, Roma',book:{url:'https://tickets.museivaticani.va',label:'Tickets · 25 €'}},
+      {iso:'2026-06-19T11:15:00+02:00',t:'11:15',kind:'see',title:'Petersdom',desc:'Eintritt frei. Dresscode: Schultern & Knie bedeckt! Kuppel optional für die Aussicht.',addr:'Basilica di San Pietro, Città del Vaticano'},
+      {iso:'2026-06-19T12:30:00+02:00',t:'12:30',kind:'eat',title:'Mittag: Bonci Pizzarium (Prati)',desc:'Legendäre Pizza al taglio, ~10–15 € p.P.',addr:'Pizzarium Bonci, Via della Meloria 43, Roma'},
+      {iso:'2026-06-19T14:00:00+02:00',t:'14:00',kind:'see',title:'Engelsburg & Piazza Navona',desc:'Über die Ponte Sant\'Angelo (Foto-Stopp Castel Sant\'Angelo) zur Piazza Navona — Berninis Vierströmebrunnen.',addr:'Piazza Navona, Roma'},
+      {iso:'2026-06-19T14:45:00+02:00',t:'14:45',flag:'Reservieren',kind:'see',title:'Pantheon',desc:'Mit Reservierung ohne Schlange, ~5 € p.P. 5 Min von Navona.',addr:'Pantheon, Piazza della Rotonda, Roma',book:{url:'https://www.museiitaliani.it',label:'Tickets · ~5 €'}},
+      {iso:'2026-06-19T15:20:00+02:00',t:'15:20',kind:'eat',title:'Gelato & Caffè',desc:'Gelato bei Giolitti, Espresso im Stehen bei Sant\'Eustachio.',addr:'Giolitti, Via degli Uffici del Vicario 40, Roma'},
+      {iso:'2026-06-19T16:15:00+02:00',t:'16:15',kind:'see',title:'Ghetto & Campo de\' Fiori',desc:'Carciofi alla giudia im jüdischen Ghetto, Bummel über den Campo de\' Fiori.',addr:'Portico d\'Ottavia, Roma'},
+      {iso:'2026-06-19T18:30:00+02:00',t:'18:30',kind:'see',title:'Trastevere & Gianicolo-Aussicht',desc:'Über die Tiberinsel; wer mag ~20 Min hoch zum Gianicolo — bestes Panorama über Rom (Sonnenuntergang ~20:45).',addr:'Passeggiata del Gianicolo, Roma'},
+      {iso:'2026-06-19T20:00:00+02:00',t:'20:00',kind:'eat',title:'Abendessen: Tonnarello (Trastevere)',desc:'Riesige Portionen, Pasta 12–14 €, ~18–22 € p.P. Keine Reservierung – evtl. kurz anstehen. Alt: Da Teo / Pizza Ai Marmi.',addr:'Tonnarello, Via della Paglia 1-3, Roma',book:{url:'https://www.google.com/maps/search/Tonnarello+Trastevere+Roma',label:'Info / Karte'}}
+    ]},
+    {date:'Samstag · 20. Juni', sub:'Letzter Vormittag & Abflug', note:'<b>Deadline:</b> Ohne Gepäck reicht ~1,5 Std vor Abflug. Gate schließt 14:35 → spätestens 12:30 Uhr den Express ab Termini; mit dem 11:30-Zug habt ihr komfortablen Puffer.', events:[
+      {iso:'2026-06-20T08:30:00+02:00',t:'08:30',kind:'see',title:'Santa Maria Maggiore',desc:'1 Min von der Wohnung! Prächtige Basilika, Eintritt frei. Ruhiger Abschluss.',addr:'Basilica di Santa Maria Maggiore, Roma'},
+      {iso:'2026-06-20T09:20:00+02:00',t:'09:20',kind:'see',title:'Letzter Monti-Bummel',desc:'Souvenirs, letztes Gelato, Gassen genießen.',addr:'Rione Monti, Roma'},
+      {iso:'2026-06-20T10:00:00+02:00',t:'10:00',kind:'see',title:'Check-out',desc:'Ohne Gepäck seid ihr sofort mobil — Schlüssel zurückgeben.',addr:"Via dell'Olmata 60, Roma"},
+      {iso:'2026-06-20T11:30:00+02:00',t:'11:30',kind:'fly',title:'Leonardo Express → FCO',desc:'32 Min zum Flughafen. Ticket 14 € p.P. Spätestens 12:30 nehmen.',addr:'Stazione Roma Termini',book:{url:TRENI,label:'Ticket · 14 €'}},
+      {iso:'2026-06-20T12:05:00+02:00',t:'12:05',kind:'fly',title:'Ankunft Flughafen FCO',desc:'Nur Handgepäck & online eingecheckt → direkt durch Security zum Gate. Gate schließt 14:35.',addr:'Aeroporto di Fiumicino (FCO)'},
+      {iso:'2026-06-20T13:00:00+02:00',t:'13:00',kind:'eat',title:'Mittag / Bummel am Flughafen',desc:'Letzter Espresso auf italienischem Boden.',addr:'Aeroporto di Fiumicino (FCO)'},
+      {iso:'2026-06-20T15:05:00+02:00',t:'15:05',flag:'Flug',kind:'fly',title:'Abflug FCO → München',desc:'Landung München 16:50. Arrivederci, Roma!',addr:'Aeroporto di Fiumicino (FCO)'}
+    ]}
+  ];
+
+  var tl=document.getElementById('timeline');
+  var flat=[]; var n=0; var html='';
+  DAYS.forEach(function(day){
+    html+='<div class="tlday"><div class="tlday-head"><span class="tld-date">'+day.date+'</span><span class="tld-sub">'+day.sub+'</span></div>';
+    day.events.forEach(function(e){
+      var id='ev'+(n++); flat.push({id:id,start:new Date(e.iso)});
+      var btns='<a class="tbtn route" target="_blank" rel="noopener" href="'+maps(e.addr)+'">'+PIN+' Route</a>';
+      if(e.book){btns+='<a class="tbtn book" target="_blank" rel="noopener" href="'+e.book.url+'">'+e.book.label+'</a>';}
+      html+='<div class="tev kind-'+(e.kind||'see')+'" id="'+id+'">'
+        +'<div class="tev-time">'+e.t+(e.flag?'<span class="tev-flag">'+e.flag+'</span>':'')+'</div>'
+        +'<div class="tev-body">'
+        +'<div class="tev-title">'+e.title+'</div>'
+        +'<div class="tev-desc">'+e.desc+'</div>'
+        +'<div class="tev-addr">'+PIN+'<span>'+e.addr+'</span></div>'
+        +'<div class="tev-btns">'+btns+'</div>'
+        +'</div></div>';
+    });
+    if(day.note){html+='<div class="tlnote">'+day.note+'</div>';}
+    html+='</div>';
+  });
+  tl.innerHTML=html;
+
+  var nbTime=document.getElementById('nb-time'), nbText=document.getElementById('nb-text'), nbJump=document.getElementById('nb-jump');
+  var firstStart=flat[0].start, lastStart=flat[flat.length-1].start, tripEnd=new Date(lastStart.getTime()+3*3600*1000);
+  var currentId=null;
+
+  function rel(ms){
+    var s=Math.floor(ms/1000), d=Math.floor(s/86400); s-=d*86400; var h=Math.floor(s/3600); s-=h*3600; var m=Math.floor(s/60);
+    if(d>0) return 'in '+d+' Tag'+(d>1?'en':'')+' '+h+' Std';
+    if(h>0) return 'in '+h+' Std '+m+' Min';
+    return 'in '+m+' Min';
+  }
+  function update(){
+    var now=new Date();
+    nbTime.textContent=now.toLocaleTimeString('de-DE',{timeZone:'Europe/Rome',hour:'2-digit',minute:'2-digit'});
+    var curIdx=-1;
+    for(var i=0;i<flat.length;i++){ if(flat[i].start<=now) curIdx=i; }
+    var ended = now>tripEnd;
+    currentId=null;
+    for(var j=0;j<flat.length;j++){
+      var el=document.getElementById(flat[j].id); el.classList.remove('past','now');
+      if(ended){ el.classList.add('past'); }
+      else if(j<curIdx){ el.classList.add('past'); }
+      else if(j===curIdx){ el.classList.add('now'); currentId=flat[j].id; }
+    }
+    if(now<firstStart){
+      nbText.innerHTML='Los geht\'s '+rel(firstStart-now)+' · zuerst <b>'+DAYS[0].events[0].title+'</b> um '+DAYS[0].events[0].t+'.';
+      currentId=flat[0].id;
+    } else if(ended){
+      nbText.innerHTML='Trip beendet — <b>arrivederci, Roma!</b>';
+    } else {
+      var curTitle=allTitle(curIdx), nextTitle=(curIdx+1<flat.length)?allTitle(curIdx+1):null, nextT=(curIdx+1<flat.length)?allT(curIdx+1):null;
+      nbText.innerHTML='Gerade: <b>'+curTitle+'</b>'+(nextTitle?(' · als Nächstes '+nextTitle+' um '+nextT):'');
+    }
+  }
+  function allTitle(i){var c=0;for(var a=0;a<DAYS.length;a++){for(var b=0;b<DAYS[a].events.length;b++){if(c===i)return DAYS[a].events[b].title;c++;}}return '';}
+  function allT(i){var c=0;for(var a=0;a<DAYS.length;a++){for(var b=0;b<DAYS[a].events.length;b++){if(c===i)return DAYS[a].events[b].t;c++;}}return '';}
+
+  nbJump.addEventListener('click',function(){
+    var el=currentId?document.getElementById(currentId):null;
+    if(el){ el.scrollIntoView({behavior:'smooth',block:'center'}); }
+    else { tl.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
+
+  update(); setInterval(update,30000);
+})();
+</script>
+
+</body>
+</html>
